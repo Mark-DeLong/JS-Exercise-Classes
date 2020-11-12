@@ -140,8 +140,8 @@ class Instructor extends Lambdasian {
   demo(subject) {
     return `Today we are learning about ${subject}`
   }
-  grade(name, subject) {
-    return `${name} receives a perfect score on ${subject}`
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}`
   }
 }
 
@@ -174,8 +174,8 @@ class Student extends Lambdasian {
   PRAssignment(subject) {
     return `${this.name} has submitted a PR for ${subject}`
   }
-  sptrintChallenge(subject) {
-    return `${this.name} has begun sprint challenge on ${subject}`
+  sptrintChallenge(student, subject) {
+    return `${student.name} has begun sprint challenge on ${subject}`
   }
 }
 
