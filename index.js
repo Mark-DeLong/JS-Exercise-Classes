@@ -102,10 +102,10 @@ class Car{
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  constructor(name, age, location){
-    this.name = name;
-    this.age = age;
-    this.location = location
+  constructor(attributes){
+    this.name = attributes.name;
+    this.age = attributes.age;
+    this.location = attributes.location
   }
   speak() {
     return `Hello my name is ${this.name} I am from ${this.location}`
@@ -126,8 +126,13 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
+class Instructor extends Lambdasian {
+  
   constructor (attributes) {
+    super(attributes)
+    this.name = attributes.name
+    this.age = attributes.age
+    this.location = attributes.location
     this.specialty = attributes.specialty
     this.favLanguage = attributes.favLanguage
     this.catchPhrase = attributes.catchPhrase
@@ -135,10 +140,12 @@ class Instructor {
   demo(subject) {
     return `Today we are learning about ${subject}`
   }
-  grade(student, subject) {
-    return `${student.name} receives a perfect score on ${subject}`
+  grade(name, subject) {
+    return `${name} receives a perfect score on ${subject}`
   }
 }
+
+
 
 
 /*
