@@ -80,9 +80,14 @@ class Car{
     this.tank = 0
     this.odometer = 0
   }
-  drive(distance) {
+  drive(distance){
+    this.tank -= distance/this.milesPerGallon
     this.odometer += distance
-    this.tank -= (distance/this.milesPerGallon)
+    if(this.tank <= 0){
+      this.odometer += this.milesPerGallon*this.tank
+      this.tank = 0
+      return `I ran out of fuel at ${this.odometer} miles!`
+    }
   }
   fill(gallons) {
     this.tank += gallons
@@ -131,8 +136,6 @@ class Instructor extends Lambdasian {
   constructor (attributes) {
     super(attributes)
     this.name = attributes.name
-    this.age = attributes.age
-    this.location = attributes.location
     this.specialty = attributes.specialty
     this.favLanguage = attributes.favLanguage
     this.catchPhrase = attributes.catchPhrase
@@ -168,14 +171,15 @@ class Student extends Lambdasian {
     this.className = attributes.className
     this.favSubjects = attributes.favSubjects
   }
+
   listSubjects() {
     return `Loving ${this.favSubjects}!`
   }
   PRAssignment(subject) {
     return `${this.name} has submitted a PR for ${subject}`
   }
-  sptrintChallenge(student, subject) {
-    return `${student.name} has begun sprint challenge on ${subject}`
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`
   }
 }
 
