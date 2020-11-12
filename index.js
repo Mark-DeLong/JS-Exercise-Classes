@@ -108,10 +108,10 @@ class Lambdasian {
     this.location = location
   }
   speak() {
-    return `Hello my name is ${this.name}, I am from ${this.location}`
+    return `Hello my name is ${this.name} I am from ${this.location}`
   }
 }
-const newLambdasian = new Lambdasian("Petar", 23, "NY City")
+
 /*
   TASK 4
     - Write an Instructor class extending Lambdasian.
@@ -127,8 +127,19 @@ const newLambdasian = new Lambdasian("Petar", 23, "NY City")
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor {
-
+  constructor (attributes) {
+    this.specialty = attributes.specialty
+    this.favLanguage = attributes.favLanguage
+    this.catchPhrase = attributes.catchPhrase
+  }
+  demo(subject) {
+    return `Today we are learning about ${subject}`
+  }
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}`
+  }
 }
+
 
 /*
   TASK 5
